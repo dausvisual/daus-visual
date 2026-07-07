@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Quantico';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/rax4HiSdp9cPL3KIF7xuFD96mw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Quantico';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../fonts/rax7HiSdp9cPL3KIF7xuHIRfi0348Q.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Quantico';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/rax-HiSdp9cPL3KIF7xrJDg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Quantico';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../fonts/rax5HiSdp9cPL3KIF7TQAShdu0o.ttf) format('truetype');
+}
