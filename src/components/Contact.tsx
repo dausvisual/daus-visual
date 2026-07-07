@@ -62,18 +62,18 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="w-full h-64 bg-white/5 rounded-2xl border border-white/10 overflow-hidden relative group">
-              <img
-                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop"
-                alt="Map Placeholder"
-                className="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                <Button variant="outline" className="bg-black/50 border-white/20 backdrop-blur-md hover:bg-primary hover:border-primary">
-                  Lihat di Google Maps
-                </Button>
-              </div>
+            {/* Google Map Embedded */}
+            <div className="w-full h-64 md:h-80 bg-white/5 rounded-2xl border border-white/10 overflow-hidden relative">
+              <iframe
+                src="https://maps.google.com/maps?q=Ujung%20Bulu,%20Bulukumba,%20Sulawesi%20Selatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+              ></iframe>
             </div>
           </motion.div>
 

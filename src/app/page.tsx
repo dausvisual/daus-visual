@@ -3,10 +3,8 @@ import { Hero } from "@/components/Hero"
 import { Projects } from "@/components/Projects"
 import { Services } from "@/components/Services"
 import { Pricing } from "@/components/Pricing"
-import { About } from "@/components/About"
-import { WhyChooseUs } from "@/components/WhyChooseUs"
 import { Testimonials } from "@/components/Testimonials"
-import { Faq } from "@/components/Faq"
+import { WhyChooseUs } from "@/components/WhyChooseUs"
 import { Contact } from "@/components/Contact"
 import { Footer } from "@/components/Footer"
 import { getEnrichedPortfolioData } from "@/lib/data"
@@ -19,13 +17,11 @@ export default async function Home() {
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <WhyChooseUs />
         <Pricing />
         <Projects initialProjects={projectsData} />
         <Services />
+        <WhyChooseUs />
         <Testimonials />
-        <Faq />
         <Contact />
       </main>
       <Footer />

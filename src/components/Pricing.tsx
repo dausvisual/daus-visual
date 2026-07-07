@@ -105,7 +105,7 @@ export function Pricing() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 overflow-x-auto pb-8 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {packages.map((pkg, index) => (
             <motion.div
               key={pkg.id}
@@ -113,7 +113,7 @@ export function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative glass p-8 rounded-3xl flex flex-col ${
+              className={`relative shrink-0 w-[85vw] md:w-auto snap-center glass p-8 rounded-3xl flex flex-col ${
                 pkg.popular 
                   ? "border-primary/50 shadow-[0_0_30px_rgba(255,26,26,0.15)] -translate-y-2 bg-gradient-to-b from-primary/5 to-transparent" 
                   : "border-white/5 hover:border-white/20 transition-colors"
