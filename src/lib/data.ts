@@ -169,9 +169,9 @@ export const portfolioData = [
   },
   {
     "id": "8",
-    "title": "Undangan Digital (HIKMAH & YUDHA)",
+    "title": "Undangan Digital (YUDHA & HIKMA)",
     "category": "Wedding",
-    "client": "HIKMAH & YUDHA",
+    "client": "YUDHA & HIKMA",
     "year": "2026",
     "image": "/image/hikmah-yudha.webp",
     "liveUrl": "/invitations/yudha-hikma/index.html",

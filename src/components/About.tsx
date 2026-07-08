@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { motion, useInView } from "framer-motion"
+import Image from "next/image"
 import { CheckCircle2 } from "lucide-react"
 
 function Counter({ from, to, duration = 2, suffix = "" }: { from: number, to: number, duration?: number, suffix?: string }) {
@@ -42,10 +43,12 @@ export function About() {
             className="relative"
           >
             <div className="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10 glass">
-              <img 
+              <Image 
                 src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2070&auto=format&fit=crop" 
                 alt="Daus Visual Studio" 
-                className="w-full h-full object-cover opacity-80"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover opacity-80"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
               

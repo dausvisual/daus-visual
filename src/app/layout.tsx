@@ -14,8 +14,30 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Daus Visual Creative Industry",
-  description: "Creative studio specializing in premium Digital Wedding Invitations.",
+  metadataBase: new URL("https://dausvisual.com"),
+  title: {
+    default: "DAUS VISUAL | Undangan Digital Eksklusif",
+    template: "%s | DAUS VISUAL"
+  },
+  description: "DAUS VISUAL Creative studio specializing in premium Digital Wedding Invitations.",
+  keywords: ["undangan digital", "wedding invitation", "jasa pembuatan undangan", "undangan website", "daus visual", "video undangan", "undangan premium", "undangan murah", "undangan pernikahan"],
+  authors: [{ name: "Firdaus Ikram", url: "https://firdausikram.xyz" }],
+  openGraph: {
+    title: "DAUS VISUAL | Undangan Digital Eksklusif",
+    description: "Buat momen spesial Anda lebih elegan dengan undangan digital modern, interaktif, dan berkesan.",
+    url: "https://dausvisual.com",
+    siteName: "DAUS VISUAL",
+    images: [
+      {
+        url: "/image/theme-luxury.png",
+        width: 800,
+        height: 600,
+        alt: "DAUS VISUAL Cover",
+      },
+    ],
+    locale: "id_ID",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

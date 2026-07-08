@@ -23,9 +23,9 @@ export function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4"
+            className="text-primary text-sm font-bold tracking-widest uppercase mb-4"
           >
-            Testimonial
+            TESTIMONIAL
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -61,30 +61,34 @@ export function Testimonials() {
                 key={testimonial.id}
                 className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4"
               >
-                <div className="glass p-8 rounded-3xl h-full flex flex-col relative group hover:border-primary/50 transition-colors">
-                  <Quote className="absolute top-6 right-8 w-12 h-12 text-white/5 group-hover:text-primary/10 transition-colors" />
+                <div className="glass p-8 rounded-3xl h-full flex flex-col relative group hover:border-primary/50 transition-colors bg-[#0f0f0f]">
                   
-                  <div className="flex gap-1 mb-6">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star 
-                        key={i} 
-                        className={`w-5 h-5 ${i < testimonial.rating ? "fill-primary text-primary" : "fill-white/10 text-white/10"}`} 
-                      />
-                    ))}
-                  </div>
-                  
-                  <p className="text-white/80 text-lg leading-relaxed mb-8 flex-grow">
-                    "{testimonial.review}"
-                  </p>
-                  
-                  <div className="flex items-center gap-4 mt-auto">
-                    <div className="w-12 h-12 rounded-full bg-white/5 border-2 border-white/10 flex items-center justify-center">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center overflow-hidden">
+                      {/* Placeholder for user image */}
                       <User className="w-6 h-6 text-white/70" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-white">{testimonial.name}</h4>
-                      <p className="text-sm text-muted-foreground">Klien Daus Visual</p>
+                      <h4 className="font-bold text-white font-heading">{testimonial.name}</h4>
+                      <p className="text-xs text-muted-foreground">Client Invitation</p>
                     </div>
+                  </div>
+                  
+                  <p className="text-white/80 text-sm leading-relaxed mb-6 flex-grow italic">
+                    "{testimonial.review}"
+                  </p>
+                  
+                  <div className="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                    <span className="font-bold text-white text-sm">5.0</span>
+                    <div className="flex gap-1">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star 
+                          key={i} 
+                          className="w-4 h-4 fill-primary text-primary" 
+                        />
+                      ))}
+                    </div>
+                    <span className="text-xs text-muted-foreground font-medium ml-auto">G</span>
                   </div>
                 </div>
               </div>

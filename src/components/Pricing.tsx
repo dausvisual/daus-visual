@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { Check, ArrowRight, ExternalLink } from "lucide-react"
+import { Check, ArrowRight, ExternalLink, RefreshCw, Zap, Gem, ShieldCheck } from "lucide-react"
 
 const packages = [
   {
@@ -73,7 +73,7 @@ export function Pricing() {
   return (
     <section id="pricing" className="py-24 bg-background relative overflow-hidden">
       {/* Background Decor */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 blur-[120px] rounded-full mix-blend-screen pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 blur-[150px] rounded-full mix-blend-screen pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16">
@@ -81,9 +81,9 @@ export function Pricing() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4"
+            className="text-primary text-sm font-bold tracking-widest uppercase mb-4"
           >
-            Digital Invitation
+            PAKET KAMI
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -92,17 +92,8 @@ export function Pricing() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-5xl font-bold font-heading mb-4 text-white"
           >
-            Fitur <span className="text-primary">Undangan Digital</span>
+            Pilih Paket Terbaik <span className="hidden md:inline">Untuk Anda</span>
           </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-muted-foreground text-lg max-w-2xl mx-auto"
-          >
-            Pilih paket undangan digital yang paling sesuai dengan kebutuhan acara spesial Anda. Kami menawarkan berbagai fitur unggulan untuk mempermudah momen bahagia Anda.
-          </motion.p>
         </div>
 
         <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 overflow-x-auto pb-8 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
@@ -113,15 +104,15 @@ export function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative shrink-0 w-[85vw] md:w-auto snap-center glass p-8 rounded-3xl flex flex-col ${
+              className={`relative shrink-0 w-[85vw] md:w-auto snap-center glass p-8 rounded-3xl flex flex-col transition-all duration-300 ${
                 pkg.popular 
-                  ? "border-primary/50 shadow-[0_0_30px_rgba(255,26,26,0.15)] -translate-y-2 bg-gradient-to-b from-primary/5 to-transparent" 
-                  : "border-white/5 hover:border-white/20 transition-colors"
+                  ? "border-primary border-2 shadow-[0_0_30px_rgba(255,26,26,0.15)] bg-gradient-to-b from-primary/5 to-transparent scale-105 z-10" 
+                  : "border-white/5 hover:border-white/20"
               }`}
             >
               {pkg.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-white text-xs font-bold rounded-full shadow-lg">
-                  PALING DIMINATI
+                <div className="absolute -top-4 -right-2 px-4 py-1 bg-primary text-white text-xs font-bold shadow-lg transform rotate-6">
+                  BEST SELLER
                 </div>
               )}
               
@@ -143,9 +134,9 @@ export function Pricing() {
 
               <a 
                 href="#contact" 
-                className={`w-full py-3 rounded-xl text-center text-sm font-medium transition-all duration-300 ${
+                className={`w-full py-3 rounded-xl text-center text-sm font-bold transition-all duration-300 ${
                   pkg.popular 
-                    ? "bg-primary text-white hover:shadow-[0_0_20px_rgba(255,26,26,0.4)]" 
+                    ? "bg-primary text-white hover:bg-primary/90" 
                     : "bg-white/5 text-white hover:bg-white/10"
                 }`}
               >
@@ -153,6 +144,46 @@ export function Pricing() {
               </a>
             </motion.div>
           ))}
+        </div>
+
+        {/* Guarantees Section */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16 border-t border-b border-white/10 py-8">
+          <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left group">
+            <div className="w-12 h-12 rounded-full border border-primary text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+              <RefreshCw className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="text-white font-bold text-sm">Revisi Tanpa Batas</h4>
+              <p className="text-muted-foreground text-xs">Sesuai keinginan Anda</p>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left group">
+            <div className="w-12 h-12 rounded-full border border-primary text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+              <Zap className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="text-white font-bold text-sm">Proses Cepat</h4>
+              <p className="text-muted-foreground text-xs">1-3 Hari Selesai</p>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left group">
+            <div className="w-12 h-12 rounded-full border border-primary text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+              <Gem className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="text-white font-bold text-sm">Desain Eksklusif</h4>
+              <p className="text-muted-foreground text-xs">100% Original</p>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left group">
+            <div className="w-12 h-12 rounded-full border border-primary text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+              <ShieldCheck className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="text-white font-bold text-sm">Garansi Kepuasan</h4>
+              <p className="text-muted-foreground text-xs">Uang Kembali 100%</p>
+            </div>
+          </div>
         </div>
 
         {/* Template Link Section */}

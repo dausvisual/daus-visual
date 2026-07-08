@@ -4,7 +4,7 @@ import { Projects } from "@/components/Projects"
 import { Services } from "@/components/Services"
 import { Pricing } from "@/components/Pricing"
 import { Testimonials } from "@/components/Testimonials"
-import { WhyChooseUs } from "@/components/WhyChooseUs"
+import { OrderProcess } from "@/components/OrderProcess"
 import { Contact } from "@/components/Contact"
 import { Footer } from "@/components/Footer"
 import { getEnrichedPortfolioData } from "@/lib/data"
@@ -20,7 +20,7 @@ export default async function Home() {
         <Pricing />
         <Projects initialProjects={projectsData} />
         <Services />
-        <WhyChooseUs />
+        <OrderProcess />
         <Testimonials />
         <Contact />
       </main>

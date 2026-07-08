@@ -2,7 +2,8 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Video } from "lucide-react"
+import Image from "next/image"
+import { MessageCircle } from "lucide-react"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -13,12 +14,35 @@ export function Footer() {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[200px] bg-primary/10 rounded-full blur-[100px] mix-blend-screen pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
+        
+        {/* CTA Block */}
+        <div className="bg-[#0f0f0f] rounded-3xl p-8 md:p-12 mb-20 border border-white/5 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-2">
+              Siap Membuat Undangan <br className="hidden md:block" />
+              Digital Impian Anda?
+            </h2>
+            <p className="text-muted-foreground">
+              Konsultasikan kebutuhan Anda sekarang juga.
+            </p>
+          </div>
+          <a 
+            href="https://wa.me/6285341866227" 
+            target="_blank" 
+            rel="noreferrer"
+            className="shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-white rounded-full font-bold transition-all duration-300 shadow-[0_0_20px_rgba(229,16,16,0.4)]"
+          >
+            Hubungi Kami di WhatsApp
+            <MessageCircle className="w-5 h-5 ml-1" />
+          </a>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
           {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 group mb-6 w-fit">
-              <img src="/image/logo.png" alt="Daus Visual" className="h-14 md:h-16 w-auto" />
+          <div className="space-y-4">
+            <Link href="/" className="inline-block mb-4">
+              <Image src="/image/logo.png" alt="Daus Visual" width={180} height={64} className="h-14 md:h-16 w-auto" />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
               Solusi kreatif untuk kebutuhan visual Anda. Kami hadir untuk memberikan hasil terbaik dengan sentuhan elegan dan profesional.
@@ -59,7 +83,7 @@ export function Footer() {
             <ul className="space-y-3">
               {['Undangan Digital', 'Videografi', 'Fotografi', 'Drone Pilot', 'Desain Grafis', 'Editing'].map((item) => (
                 <li key={item}>
-                  <Link href="#services" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                  <Link href="/#services" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                     {item}
                   </Link>
                 </li>
@@ -67,23 +91,20 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Newsletter (Matching Image) */}
           <div>
-            <h4 className="text-white font-bold mb-6 font-heading">Kontak</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                <span className="font-medium text-white/80 w-16 shrink-0">Tel/WA:</span>
-                +62 853-4186-6227
-              </li>
-              <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                <span className="font-medium text-white/80 w-16 shrink-0">Email:</span>
-                [dausvisual@gmail.com]
-              </li>
-              <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                <span className="font-medium text-white/80 w-16 shrink-0">Alamat:</span>
-                Bulukumba, Sulawesi Selatan, Indonesia
-              </li>
-            </ul>
+            <h4 className="text-white font-bold mb-6 font-heading">Newsletter</h4>
+            <p className="text-muted-foreground text-sm mb-4">Dapatkan info & promo terbaru</p>
+            <form className="flex flex-col gap-3">
+              <input 
+                type="email" 
+                placeholder="Alamat email anda" 
+                className="bg-black/50 border border-white/10 rounded-xl px-4 py-2 text-white text-sm focus:outline-none focus:border-primary"
+              />
+              <button className="bg-primary hover:bg-primary/90 text-white rounded-xl px-4 py-2 text-sm font-bold transition-colors w-full">
+                Subscribe
+              </button>
+            </form>
           </div>
 
         </div>

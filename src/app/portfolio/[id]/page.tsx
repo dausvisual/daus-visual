@@ -2,6 +2,7 @@ import * as React from "react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ExternalLink, CheckCircle2 } from "lucide-react"
+import Image from "next/image"
 import { portfolioData } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -36,10 +37,12 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
 
         {/* Hero Section */}
         <div className="relative w-full aspect-[21/9] md:aspect-[21/7] rounded-3xl overflow-hidden mb-12 group">
-          <img 
+          <Image 
             src={project.image} 
             alt={project.title} 
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            fill
+            sizes="100vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
           
@@ -134,10 +137,12 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
               {relatedProjects.map((rp) => (
                 <Link key={rp.id} href={`/portfolio/${rp.id}`} className="group block">
                   <div className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-card border border-border group-hover:border-primary/50 transition-colors">
-                    <img
+                    <Image
                       src={rp.image}
                       alt={rp.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
