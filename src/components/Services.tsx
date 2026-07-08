@@ -51,7 +51,7 @@ export function Services() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 gap-2 md:gap-6">
           {servicesData.map((service, index) => {
             const Icon = iconMap[service.icon] || MonitorSmartphone
             
@@ -62,23 +62,24 @@ export function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative p-[1px] rounded-2xl overflow-hidden"
+                className="group relative p-[1px] rounded-xl md:rounded-2xl overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-border via-transparent to-primary/30 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                <div className="relative h-full bg-card/80 backdrop-blur-sm p-8 rounded-2xl flex flex-col items-center text-center gap-4 transition-transform duration-300 group-hover:-translate-y-1">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                    <Icon className="w-8 h-8" />
+                <div className="relative h-full bg-card/80 backdrop-blur-sm p-3 md:p-8 rounded-xl md:rounded-2xl flex flex-col items-center text-center gap-2 md:gap-4 transition-transform duration-300 group-hover:-translate-y-1">
+                  <div className="w-10 h-10 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">
+                    <Icon className="w-5 h-5 md:w-8 md:h-8" />
                   </div>
                   
-                  <h3 className="text-xl font-bold font-heading">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm flex-grow">
+                  <h3 className="text-[10px] md:text-xl font-bold font-heading leading-tight">{service.title}</h3>
+                  <p className="text-[8px] md:text-sm text-muted-foreground flex-grow leading-tight">
                     {service.description}
                   </p>
                   
-                  <button className="mt-4 inline-flex items-center text-sm font-medium text-primary hover:text-white transition-colors group/btn">
-                    Pelajari Lebih Lanjut
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  <button className="mt-1 md:mt-4 inline-flex items-center text-[8px] md:text-sm font-medium text-primary hover:text-white transition-colors group/btn">
+                    <span className="hidden md:inline">Pelajari Lebih Lanjut</span>
+                    <span className="md:hidden">Detail</span>
+                    <ArrowRight className="ml-1 md:ml-2 w-2 h-2 md:w-4 md:h-4 group-hover/btn:translate-x-1 transition-transform" />
                   </button>
                 </div>
               </motion.div>

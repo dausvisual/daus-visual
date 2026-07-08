@@ -37,17 +37,16 @@ export function Footer() {
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-
+        <div className="flex justify-center md:justify-start mb-12">
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="space-y-4 max-w-sm text-center md:text-left">
             <Link href="/" className="inline-block mb-4">
-              <Image src="/image/logo.png" alt="Daus Visual" width={180} height={64} className="h-14 md:h-16 w-auto" />
+              <Image src="/image/logo.png" alt="Daus Visual" width={180} height={64} className="h-14 md:h-16 w-auto mx-auto md:mx-0" />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
               Solusi kreatif untuk kebutuhan visual Anda. Kami hadir untuk memberikan hasil terbaik dengan sentuhan elegan dan profesional.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center md:justify-start gap-4">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-primary hover:text-white transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
               </a>
@@ -62,51 +61,6 @@ export function Footer() {
               </a>
             </div>
           </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-white font-bold mb-6 font-heading">Navigasi</h4>
-            <ul className="space-y-3">
-              {['Home', 'Portfolio', 'Services', 'About', 'Contact'].map((item) => (
-                <li key={item}>
-                  <Link href={item === 'Home' ? '/' : `/#${item.toLowerCase()}`} className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-white font-bold mb-6 font-heading">Layanan</h4>
-            <ul className="space-y-3">
-              {['Undangan Digital', 'Videografi', 'Fotografi', 'Drone Pilot', 'Desain Grafis', 'Editing'].map((item) => (
-                <li key={item}>
-                  <Link href="/#services" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Newsletter (Matching Image) */}
-          <div>
-            <h4 className="text-white font-bold mb-6 font-heading">Newsletter</h4>
-            <p className="text-muted-foreground text-sm mb-4">Dapatkan info & promo terbaru</p>
-            <form className="flex flex-col gap-3">
-              <input 
-                type="email" 
-                placeholder="Alamat email anda" 
-                className="bg-black/50 border border-white/10 rounded-xl px-4 py-2 text-white text-sm focus:outline-none focus:border-primary"
-              />
-              <button className="bg-primary hover:bg-primary/90 text-white rounded-xl px-4 py-2 text-sm font-bold transition-colors w-full">
-                Subscribe
-              </button>
-            </form>
-          </div>
-
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs text-muted-foreground">
