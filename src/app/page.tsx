@@ -7,6 +7,7 @@ import { Testimonials } from "@/components/Testimonials"
 import { OrderProcess } from "@/components/OrderProcess"
 import { Contact } from "@/components/Contact"
 import { Footer } from "@/components/Footer"
+import { WhyChooseUs } from "@/components/WhyChooseUs"
 import { getEnrichedPortfolioData } from "@/lib/data"
 
 export default async function Home() {
@@ -17,8 +18,9 @@ export default async function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Pricing />
+        <WhyChooseUs />
         <Projects initialProjects={projectsData} />
+        <Pricing />
         <Services />
         <OrderProcess />
         <Testimonials />
