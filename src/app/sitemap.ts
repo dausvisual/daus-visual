@@ -3,7 +3,7 @@ import { portfolioData } from '@/lib/data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Ganti dengan URL domain asli Anda jika berbeda
-  const baseUrl = 'https://dausvisual.com'
+  const baseUrl = 'https://dausvisual.site'
 
   const portfolioUrls = portfolioData.map((project) => ({
     url: `${baseUrl}/portfolio/${project.id}`,

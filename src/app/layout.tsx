@@ -14,7 +14,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dausvisual.com"),
+  metadataBase: new URL("https://dausvisual.site"),
   title: {
     default: "DAUS VISUAL | Undangan Digital Eksklusif",
     template: "%s | DAUS VISUAL"
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "DAUS VISUAL | Undangan Digital Eksklusif",
     description: "Buat momen spesial Anda lebih elegan dengan undangan digital modern, interaktif, dan berkesan.",
-    url: "https://dausvisual.com",
+    url: "https://dausvisual.site",
     siteName: "DAUS VISUAL",
     images: [
       {
