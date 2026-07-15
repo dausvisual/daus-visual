@@ -29,10 +29,10 @@ export const metadata: Metadata = {
     siteName: "DAUS VISUAL",
     images: [
       {
-        url: "/image/theme-luxury.png",
-        width: 800,
-        height: 600,
-        alt: "DAUS VISUAL Cover",
+        url: "/image/thumbnail.png",
+        width: 1200,
+        height: 630,
+        alt: "DAUS VISUAL Home",
       },
     ],
     locale: "id_ID",

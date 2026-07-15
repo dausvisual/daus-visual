@@ -18,7 +18,7 @@ export function Hero() {
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col lg:grid lg:grid-cols-2 items-center relative min-h-[550px] lg:min-h-[700px]">
-          
+
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -78,9 +78,9 @@ export function Hero() {
               </a>
               <a href="https://www.instagram.com/daus_visual?igsh=NHVhMnBlbWNhd2c1" target="_blank" rel="noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 bg-white/5 hover:bg-primary hover:border-primary hover:text-white flex items-center justify-center text-muted-foreground transition-all" aria-label="Instagram">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5">
-                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
                 </svg>
               </a>
               <a href="mailto:dausvisual@gmail.com" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 bg-white/5 hover:bg-primary hover:border-primary hover:text-white flex items-center justify-center text-muted-foreground transition-all" aria-label="Email">
@@ -109,9 +109,9 @@ export function Hero() {
                 }}
                 className="absolute top-1/2 left-1/2 -translate-x-[75%] lg:-translate-x-[80%] -translate-y-[60%] w-[180px] lg:w-[250px] h-[380px] lg:h-[500px] rounded-[2rem] lg:rounded-[3rem] border-4 lg:border-8 border-white/10 bg-black overflow-hidden shadow-2xl z-10 glass"
               >
-                <Image 
-                  src="/image/theme-modern.png" 
-                  alt="Invitation Mockup Modern" 
+                <Image
+                  src="/image/theme-modern.png"
+                  alt="Invitation Mockup Modern"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover opacity-60"
@@ -132,9 +132,9 @@ export function Hero() {
                 className="absolute top-1/2 left-1/2 -translate-x-[30%] lg:-translate-x-[40%] -translate-y-[45%] w-[200px] lg:w-[280px] h-[420px] lg:h-[580px] rounded-[2rem] lg:rounded-[3rem] border-4 lg:border-8 border-white/20 bg-black overflow-hidden shadow-[0_0_50px_rgba(255,26,26,0.2)] z-20"
               >
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-4 lg:h-6 bg-black rounded-b-xl z-30" />
-                <Image 
-                  src="/image/theme-luxury.png" 
-                  alt="Invitation Mockup Luxury" 
+                <Image
+                  src="/image/theme-luxury.png"
+                  alt="Invitation Mockup Luxury"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
@@ -158,9 +158,9 @@ export function Hero() {
                 }}
                 className="absolute top-1/2 left-1/2 translate-x-[20%] lg:translate-x-[5%] -translate-y-[55%] w-[160px] lg:w-[230px] h-[360px] lg:h-[480px] rounded-[2rem] lg:rounded-[3rem] border-4 lg:border-8 border-white/10 bg-black overflow-hidden shadow-2xl z-10 glass hidden lg:block"
               >
-                <Image 
-                  src="/image/theme-rustic.png" 
-                  alt="Invitation Mockup Rustic" 
+                <Image
+                  src="/image/theme-rustic.png"
+                  alt="Invitation Mockup Rustic"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover opacity-60"
@@ -171,7 +171,7 @@ export function Hero() {
         </div>
 
         {/* Stats Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
