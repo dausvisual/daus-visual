@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import { LenisProvider } from "@/components/LenisProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,10 +49,12 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${inter.variable} ${poppins.variable} scroll-smooth antialiased`}
+      className={`${inter.variable} ${poppins.variable} antialiased scroll-smooth scroll-pt-[100px]`}
     >
       <body className="min-h-screen bg-background text-foreground overflow-x-hidden font-sans">
-        {children}
+        <LenisProvider>
+          {children}
+        </LenisProvider>
       </body>
     </html>
   );

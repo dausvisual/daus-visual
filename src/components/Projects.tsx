@@ -54,7 +54,7 @@ export function Projects({ initialProjects }: { initialProjects: any[] }) {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 layout
@@ -70,6 +70,7 @@ export function Projects({ initialProjects }: { initialProjects: any[] }) {
                       src={project.image}
                       alt={project.title}
                       fill
+                      priority={index < 4}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                     />

@@ -67,7 +67,7 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <Image src="/image/logo.png" alt="Daus Visual" width={150} height={48} className="h-10 md:h-12 w-auto transition-transform group-hover:scale-105" />
+          <Image src="/image/logo.png" alt="Daus Visual" width={150} height={48} className="h-10 md:h-12 w-auto transition-transform group-hover:scale-105" style={{ width: 'auto', height: 'auto' }} />
         </Link>
 
         {/* Desktop Navigation */}

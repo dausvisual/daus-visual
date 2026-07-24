@@ -1,5 +1,53 @@
 export const portfolioData = [
   {
+    "id": "32",
+    "title": "Undangan Digital (ANA & FAJRI)",
+    "category": "Wedding",
+    "client": "ANA & FAJRI",
+    "year": "2026",
+    "image": "/image/ana-fajri.png",
+    "liveUrl": "/invitations/ana-fajri/a4.sabdacinta.my.id/ana-fajri/to=Nama+Tamu.html",
+    "features": [
+      "Digital Invitation",
+      "RSVP Form",
+      "Gallery"
+    ],
+    "palette": [
+      "#FFFFFF",
+      "#000000",
+      "#F5F5F5"
+    ],
+    "typography": [
+      "Inter",
+      "Playfair Display"
+    ],
+    "testimonial": ""
+  },
+  {
+    "id": "33",
+    "title": "Undangan Digital (FAJRI & ANA)",
+    "category": "Wedding",
+    "client": "FAJRI & ANA",
+    "year": "2026",
+    "image": "/image/fajri-ana.png",
+    "liveUrl": "/invitations/fajri-ana/a4.sabdacinta.my.id/fajri-ana/to=Nama+Tamu.html",
+    "features": [
+      "Digital Invitation",
+      "RSVP Form",
+      "Gallery"
+    ],
+    "palette": [
+      "#FFFFFF",
+      "#000000",
+      "#F5F5F5"
+    ],
+    "typography": [
+      "Inter",
+      "Playfair Display"
+    ],
+    "testimonial": ""
+  },
+  {
     "id": "1",
     "title": "Undangan Digital (INNA & FADEL)",
     "category": "Wedding",

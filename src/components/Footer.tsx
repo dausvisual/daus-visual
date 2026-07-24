@@ -41,7 +41,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4 max-w-sm text-center md:text-left">
             <Link href="/" className="inline-block mb-4">
-              <Image src="/image/logo.png" alt="Daus Visual" width={180} height={64} className="h-14 md:h-16 w-auto mx-auto md:mx-0" />
+              <Image src="/image/logo.png" alt="Daus Visual" width={180} height={64} className="h-14 md:h-16 w-auto mx-auto md:mx-0" style={{ width: 'auto', height: 'auto' }} />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
               Solusi kreatif untuk kebutuhan visual Anda. Kami hadir untuk memberikan hasil terbaik dengan sentuhan elegan dan profesional.

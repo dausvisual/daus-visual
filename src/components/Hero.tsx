@@ -12,7 +12,6 @@ export function Hero() {
       <div className="absolute inset-0 w-full h-full">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen opacity-50 animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[150px] mix-blend-screen opacity-50" />
-        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
       </div>
 
