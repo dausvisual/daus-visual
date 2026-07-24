@@ -44,7 +44,7 @@ export function Pricing() {
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-7xl mx-auto items-start">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-7xl mx-auto items-stretch">
           {t.pricing.packages.map((pkg: any, index: number) => {
             const isExpanded = expandedId === pkg.id;
             
