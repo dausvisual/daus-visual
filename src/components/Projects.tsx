@@ -6,10 +6,12 @@ import Link from "next/link"
 import Image from "next/image"
 import { Play } from "lucide-react"
 import { Badge } from "./ui/badge"
+import { useLanguage } from "./LanguageContext"
 
 const categories = ["All", "Wedding", "Engagement", "Khitan", "Birthday", "Corporate", "Graduation"]
 
 export function Projects({ initialProjects }: { initialProjects: any[] }) {
+  const { t, language } = useLanguage()
   const [filter, setFilter] = React.useState("All")
   
   const filteredProjects = React.useMemo(() => {
@@ -24,11 +26,10 @@ export function Projects({ initialProjects }: { initialProjects: any[] }) {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4">
-              Our <span className="text-primary">Masterpieces</span>
+              {t.projects.title1} <span className="text-primary">{t.projects.titleHighlight}</span>
             </h2>
             <p className="text-muted-foreground text-lg">
-              Jelajahi koleksi desain undangan digital terbaik yang pernah kami buat. 
-              Setiap karya adalah representasi unik dari cerita bahagia klien kami.
+              {t.projects.desc}
             </p>
           </div>
           
@@ -43,7 +44,7 @@ export function Projects({ initialProjects }: { initialProjects: any[] }) {
                     : "bg-white/5 text-muted-foreground hover:bg-white/10 hover:text-white"
                 }`}
               >
-                {category}
+                {category === "All" && language === "id" ? "Semua" : category}
               </button>
             ))}
           </div>
@@ -88,7 +89,7 @@ export function Projects({ initialProjects }: { initialProjects: any[] }) {
                       
                       <div className="flex items-center justify-center gap-2 py-2 w-full bg-white/10 hover:bg-white/20 transition-colors rounded-xl text-white text-sm font-medium backdrop-blur-md">
                         <Play className="w-4 h-4" />
-                        <span>Live Demo</span>
+                        <span>{t.projects.demoBtn}</span>
                       </div>
                     </div>
                   </div>

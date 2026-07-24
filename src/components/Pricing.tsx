@@ -2,74 +2,11 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { Check, ArrowRight, ExternalLink, RefreshCw, Zap, Gem, ShieldCheck } from "lucide-react"
-
-const packages = [
-  {
-    id: 1,
-    name: "PAKET BASIC",
-    description: "Cocok untuk undangan simple yang elegan",
-    features: [
-      "Bisa kirim unlimited ke tamu",
-      "Tidak Bisa Custom/Ganti Nama Tamu",
-      "Musik : Marry Your Doughter (Tidak Autoplay)",
-      "Album 5 Foto",
-      "Navigasi Lokasi/Maps",
-      "Hitung Mundur",
-      "Kolom Ucapan Selamat",
-      "Teks bisa disesuaikan",
-      "Hanya Bisa Tema Rustic dan Adat",
-    ],
-    popular: false,
-  },
-  {
-    id: 2,
-    name: "PAKET VIP",
-    description: "Lebih eksklusif dengan musik autoplay",
-    features: [
-      "Semua Fitur Basic",
-      "Tulis Nama Tamu Unlimited di Website",
-      "Musik Latar Autoplay",
-      "Album 10 Foto",
-      "Gratis Undangan JPEG",
-      "Hanya Bisa Tema Rustic dan Adat",
-    ],
-    popular: false,
-  },
-  {
-    id: 3,
-    name: "PAKET VVIP",
-    description: "Paket lengkap dengan fitur premium",
-    features: [
-      "Semua Fitur Basic dan VIP",
-      "Tulis Nama Tamu Unlimited di Website",
-      "Request musik sesukamu",
-      "Fitur Pengingat Tamu",
-      "Album 15 Foto",
-      "RSVP (Konfirmasi kehadiran by WA)",
-      "Love Story (opsional)",
-      "Video Prewed / Live (opsional)",
-      "Kirim Kado/Nomor Rekening",
-      "Bonus Undangan Video / Filter IG",
-      "Gratis Undangan JPEG",
-    ],
-    popular: true,
-  },
-  {
-    id: 4,
-    name: "TEMA PREMIUM",
-    description: "Custom desain sesuai keinginan Anda",
-    features: [
-      "Semua Fitur VVIP",
-      "Bebas Custom Sesuai keinginan",
-      "Revisi Prioritas",
-      "Desain Eksklusif",
-    ],
-    popular: false,
-  },
-]
+import { Check, ArrowRight, ExternalLink } from "lucide-react"
+import { useLanguage } from "./LanguageContext"
 
 export function Pricing() {
+  const { t } = useLanguage()
   const [expandedId, setExpandedId] = React.useState<number | null>(null);
 
   return (
@@ -83,23 +20,32 @@ export function Pricing() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-primary text-sm font-bold tracking-widest uppercase mb-4"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-6"
           >
-            PAKET KAMI
+            {t.pricing.badge}
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold font-heading mb-4 text-white"
+            className="text-3xl md:text-5xl font-bold font-heading mb-6"
           >
-            Pilih Paket Terbaik <span className="hidden md:inline">Untuk Anda</span>
+            {t.pricing.title1} <span className="text-primary">{t.pricing.titleHighlight}</span>
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-muted-foreground text-lg max-w-2xl mx-auto"
+          >
+            {t.pricing.desc}
+          </motion.p>
         </div>
 
-        <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-16">
-          {packages.map((pkg, index) => {
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-7xl mx-auto items-start">
+          {t.pricing.packages.map((pkg: any, index: number) => {
             const isExpanded = expandedId === pkg.id;
             
             return (
@@ -118,7 +64,7 @@ export function Pricing() {
               >
                 {pkg.popular && (
                   <div className="absolute -top-4 -right-2 px-4 py-1 bg-primary text-white text-[10px] md:text-xs font-bold shadow-lg transform rotate-6 z-20">
-                    BEST SELLER
+                    {t.pricing.bestSeller}
                   </div>
                 )}
                 
@@ -141,7 +87,7 @@ export function Pricing() {
                 <div className={`flex-col mt-4 md:mt-0 ${isExpanded ? "flex" : "hidden"} md:flex flex-grow`}>
                   <div className="flex-grow">
                     <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8">
-                      {pkg.features.map((feature, i) => (
+                      {pkg.features.map((feature: string, i: number) => (
                         <li key={i} className="flex gap-3 text-xs md:text-sm text-white/80">
                           <Check className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0" />
                           <span>{feature}</span>
@@ -151,23 +97,23 @@ export function Pricing() {
                   </div>
 
                   <a 
-                    href="#contact" 
-                    onClick={(e) => e.stopPropagation()}
-                    className={`w-full py-3 rounded-xl text-center text-xs md:text-sm font-bold transition-all duration-300 mt-auto ${
+                    href="https://wa.me/6285341866227" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className={`w-full py-3 md:py-4 rounded-xl flex items-center justify-center font-bold transition-all duration-300 group ${
                       pkg.popular 
-                        ? "bg-primary text-white hover:bg-primary/90" 
+                        ? "bg-primary text-white shadow-[0_0_20px_rgba(255,26,26,0.4)] hover:bg-white hover:text-black hover:shadow-[0_0_30px_rgba(255,255,255,0.6)]" 
                         : "bg-white/5 text-white hover:bg-white/10"
                     }`}
                   >
-                    Pilih Paket
+                    {t.pricing.chooseBtn}
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>
               </motion.div>
             )
           })}
         </div>
-
-
 
         {/* Template Link Section */}
         <motion.div
@@ -177,8 +123,8 @@ export function Pricing() {
           className="max-w-4xl mx-auto glass rounded-3xl p-8 md:p-12 border border-primary/20 bg-gradient-to-r from-primary/5 to-transparent flex flex-col md:flex-row items-center justify-between gap-8"
         >
           <div>
-            <h3 className="text-2xl font-bold text-white mb-2 font-heading">Eksplorasi Desain Template Kami</h3>
-            <p className="text-muted-foreground">Temukan ratusan tema undangan digital yang bisa disesuaikan dengan konsep acara Anda. Dari yang modern, minimalis, hingga tradisional.</p>
+            <h3 className="text-2xl font-bold text-white mb-2 font-heading">{t.pricing.templateTitle}</h3>
+            <p className="text-muted-foreground">{t.pricing.templateDesc}</p>
           </div>
           <a 
             href="https://sabdacinta.com/Daus-Visual-" 
@@ -186,7 +132,7 @@ export function Pricing() {
             rel="noreferrer"
             className="group shrink-0 inline-flex items-center gap-2 px-6 py-4 bg-white text-black hover:bg-gray-200 rounded-full font-bold transition-all duration-300"
           >
-            Lihat Template
+            {t.pricing.templateBtn}
             <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </a>
         </motion.div>

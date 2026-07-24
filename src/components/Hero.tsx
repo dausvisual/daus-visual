@@ -4,10 +4,13 @@ import * as React from "react"
 import { motion } from "framer-motion"
 import { ArrowRight, Play, Star, MessageCircle, Mail, Users, CalendarDays, Award } from "lucide-react"
 import Image from "next/image"
+import { useLanguage } from "./LanguageContext"
 
 export function Hero() {
+  const { t } = useLanguage()
+
   return (
-    <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-background pt-24 pb-12">
+    <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-background pt-20 lg:pt-24 pb-6 lg:pb-12">
       {/* Background Effects */}
       <div className="absolute inset-0 w-full h-full">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen opacity-50 animate-pulse" />
@@ -18,13 +21,16 @@ export function Hero() {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col lg:grid lg:grid-cols-2 items-center relative min-h-[550px] lg:min-h-[700px]">
 
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col gap-5 text-left w-[65%] lg:w-full relative z-20 self-start mt-10 lg:self-center lg:mt-0"
-          >
+          {/* Left Content Wrapper */}
+          <div className="contents lg:flex lg:flex-col lg:gap-5 text-left w-full relative z-20 self-start lg:self-center">
+            
+            {/* Top Text (Order 1) */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="order-1 flex flex-col gap-4 w-full mt-4 lg:mt-0"
+            >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -35,35 +41,39 @@ export function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              Premium Digital Invitations
+              {t.hero.badge}
             </motion.div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold font-heading tracking-tight leading-[1.1] text-white">
-              Undangan Digital <br className="hidden lg:block" />
+            <h1 className="text-[28px] leading-tight sm:text-4xl lg:text-6xl font-bold font-heading tracking-tight text-white">
+              {t.hero.title1} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-400">
-                Eksklusif
-              </span> &<br className="block lg:hidden" /> Berkesan
+                {t.hero.titleHighlight}
+              </span> {t.hero.title2}
             </h1>
 
             <p className="text-sm md:text-lg text-muted-foreground max-w-[600px]">
-              Buat momen spesial Anda lebih elegan dengan undangan digital modern, interaktif, dan berkesan.
+              {t.hero.desc}
             </p>
 
+            </motion.div>
+
+            {/* Bottom Content (Order 3 on mobile) */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              className="flex flex-col gap-4 mt-4 w-full lg:flex-row lg:w-auto"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              className="order-3 flex flex-col gap-3 mt-8 lg:mt-0 mb-10 lg:mb-0 w-full"
             >
-              <a href="https://wa.me/6285341866227" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center h-12 md:h-14 px-6 md:px-8 rounded-full bg-primary hover:bg-primary/90 text-white font-medium transition-all group w-full lg:w-auto text-sm md:text-base">
-                Buat Undangan Sekarang
+              <div className="flex flex-col gap-3 w-full lg:flex-row lg:w-auto">
+              <a href="https://wa.me/6285341866227" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center h-12 md:h-14 px-6 md:px-8 rounded-full bg-primary hover:bg-primary/90 text-white font-medium transition-all group w-full sm:w-auto text-sm md:text-base">
+                {t.hero.ctaPrimary}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href="#portfolio" className="inline-flex items-center justify-center h-12 md:h-14 px-6 md:px-8 rounded-full border border-white/10 hover:bg-white/5 text-white font-medium transition-all group w-full lg:w-auto text-sm md:text-base">
+              <a href="#portfolio" className="inline-flex items-center justify-center h-12 md:h-14 px-6 md:px-8 rounded-full border border-white/10 hover:bg-white/5 text-white font-medium transition-all group w-full sm:w-auto text-sm md:text-base">
                 <Play className="mr-2 w-4 h-4 group-hover:text-primary transition-colors" />
-                Lihat Portfolio
+                {t.hero.ctaSecondary}
               </a>
-            </motion.div>
+              </div>
 
             {/* Social Links */}
             <motion.div
@@ -86,16 +96,17 @@ export function Hero() {
                 <Mail className="w-4 h-4 md:w-5 md:h-5" />
               </a>
             </motion.div>
-          </motion.div>
+            </motion.div>
+          </div>
 
           {/* Right Content - Floating Phones */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="absolute right-[-45%] sm:right-[-20%] lg:right-auto top-1/2 -translate-y-1/2 lg:relative lg:top-auto lg:translate-y-0 h-[450px] md:h-[500px] lg:h-[700px] w-[85%] sm:w-[60%] lg:w-full perspective-[1000px] flex items-center justify-center z-10 pointer-events-none lg:pointer-events-auto"
+            className="order-2 relative lg:relative h-[380px] md:h-[500px] lg:h-[700px] w-full perspective-[1000px] flex items-center justify-center z-10 pointer-events-none lg:pointer-events-auto mt-2 mb-2 lg:mt-0 lg:mb-0"
           >
-            <div className="relative w-full h-full scale-100 lg:scale-100 origin-center flex items-center justify-center">
+            <div className="relative w-full h-full scale-75 sm:scale-100 origin-center flex items-center justify-center">
               {/* Phone 1 (Back) */}
               <motion.div
                 animate={{
@@ -140,7 +151,7 @@ export function Hero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-4 lg:p-6">
                   <h3 className="text-white font-heading font-bold text-sm lg:text-xl">Luxury Edition</h3>
-                  <p className="text-white/80 text-[10px] lg:text-sm">Tema Premium VVIP</p>
+                  <p className="text-white/80 text-[10px] lg:text-sm">{t.hero.titleHighlight === "Exclusive" ? "Premium VVIP Theme" : "Tema Premium VVIP"}</p>
                 </div>
               </motion.div>
 
@@ -180,23 +191,23 @@ export function Hero() {
           <div className="grid grid-cols-4 gap-1 lg:gap-8 w-full max-w-4xl divide-x divide-white/10">
             <div className="flex flex-col items-center text-center px-1 lg:px-4">
               <Users className="w-5 h-5 lg:w-8 lg:h-8 text-primary mb-2 lg:mb-3" />
-              <h3 className="text-sm lg:text-3xl font-bold font-heading text-white">50+</h3>
-              <p className="text-muted-foreground text-[8px] lg:text-sm mt-1">Klien Puas</p>
+              <h3 className="text-sm lg:text-3xl font-bold font-heading text-white">{t.hero.stats[0].value}</h3>
+              <p className="text-muted-foreground text-[8px] lg:text-sm mt-1">{t.hero.stats[0].label}</p>
             </div>
             <div className="flex flex-col items-center text-center px-1 lg:px-4">
               <CalendarDays className="w-5 h-5 lg:w-8 lg:h-8 text-primary mb-2 lg:mb-3" />
-              <h3 className="text-sm lg:text-3xl font-bold font-heading text-white">100+</h3>
-              <p className="text-muted-foreground text-[8px] lg:text-sm mt-1">Proyek Selesai</p>
+              <h3 className="text-sm lg:text-3xl font-bold font-heading text-white">{t.hero.stats[1].value}</h3>
+              <p className="text-muted-foreground text-[8px] lg:text-sm mt-1">{t.hero.stats[1].label}</p>
             </div>
             <div className="flex flex-col items-center text-center px-1 lg:px-4">
               <Award className="w-5 h-5 lg:w-8 lg:h-8 text-primary mb-2 lg:mb-3" />
-              <h3 className="text-sm lg:text-3xl font-bold font-heading text-white whitespace-nowrap">5 Tahun</h3>
-              <p className="text-muted-foreground text-[8px] lg:text-sm mt-1">Pengalaman</p>
+              <h3 className="text-sm lg:text-3xl font-bold font-heading text-white whitespace-nowrap">{t.hero.stats[2].value}</h3>
+              <p className="text-muted-foreground text-[8px] lg:text-sm mt-1">{t.hero.stats[2].label}</p>
             </div>
             <div className="flex flex-col items-center text-center px-1 lg:px-4">
               <Star className="w-5 h-5 lg:w-8 lg:h-8 text-primary mb-2 lg:mb-3" />
-              <h3 className="text-sm lg:text-3xl font-bold font-heading text-white">4.9</h3>
-              <p className="text-muted-foreground text-[8px] lg:text-sm mt-1">Rating di Google</p>
+              <h3 className="text-sm lg:text-3xl font-bold font-heading text-white">{t.hero.stats[3].value}</h3>
+              <p className="text-muted-foreground text-[8px] lg:text-sm mt-1">{t.hero.stats[3].label}</p>
             </div>
           </div>
         </motion.div>

@@ -4,6 +4,7 @@ import * as React from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown } from "lucide-react"
 import { faqData } from "@/lib/data"
+import { useLanguage } from "./LanguageContext"
 
 function AccordionItem({ 
   question, 
@@ -54,6 +55,7 @@ function AccordionItem({
 
 export function Faq() {
   const [openIndex, setOpenIndex] = React.useState<number | null>(0)
+  const { t, language } = useLanguage()
 
   return (
     <section id="faq" className="py-24 bg-[#090909] relative z-10">
@@ -67,7 +69,7 @@ export function Faq() {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4"
             >
-              FAQ
+              {t.faq.badge}
             </motion.div>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -76,7 +78,7 @@ export function Faq() {
               transition={{ delay: 0.1 }}
               className="text-3xl md:text-5xl font-bold font-heading mb-4 text-white"
             >
-              Pertanyaan yang Sering <span className="text-primary">Diajukan</span>
+              {t.faq.title1} <span className="text-primary">{t.faq.titleHighlight}</span>
             </motion.h2>
           </div>
 
@@ -90,8 +92,8 @@ export function Faq() {
             {faqData.map((faq, index) => (
               <AccordionItem
                 key={faq.id}
-                question={faq.question}
-                answer={faq.answer}
+                question={language === "id" ? faq.question : faq.question_en || faq.question}
+                answer={language === "id" ? faq.answer : faq.answer_en || faq.answer}
                 isOpen={openIndex === index}
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               />

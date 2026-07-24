@@ -5,23 +5,26 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, MessageCircle } from "lucide-react"
+import { Menu, X, MessageCircle, Globe } from "lucide-react"
 import { Button } from "./ui/button"
-
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Paket", href: "#pricing" },
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "Services", href: "#services" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "Contact", href: "#contact" },
-]
+import { useLanguage } from "./LanguageContext"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = React.useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
   const [activeSection, setActiveSection] = React.useState("/")
   const pathname = usePathname()
+  
+  const { t, language, setLanguage } = useLanguage()
+
+  const navLinks = [
+    { name: t.nav.home, href: "/" },
+    { name: t.nav.paket, href: "#pricing" },
+    { name: t.nav.portfolio, href: "#portfolio" },
+    { name: t.nav.services, href: "#services" },
+    { name: t.nav.testimonials, href: "#testimonials" },
+    { name: t.nav.contact, href: "#contact" },
+  ]
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +57,11 @@ export function Navbar() {
     // Trigger once on mount
     handleScroll()
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [activeSection])
+  }, [activeSection, navLinks])
+
+  const toggleLanguage = () => {
+    setLanguage(language === "id" ? "en" : "id")
+  }
 
   return (
     <motion.header
@@ -67,7 +74,7 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <Image src="/image/logo.png" alt="Daus Visual" width={150} height={48} className="h-10 md:h-12 w-auto transition-transform group-hover:scale-105" style={{ width: 'auto', height: 'auto' }} />
+          <Image src="/image/logo.png" alt="Daus Visual" width={150} height={48} className="h-6 md:h-10 w-auto transition-transform group-hover:scale-105" style={{ width: 'auto' }} />
         </Link>
 
         {/* Desktop Navigation */}
@@ -89,19 +96,36 @@ export function Navbar() {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
+          <button 
+            onClick={toggleLanguage}
+            className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 hover:bg-white/10 text-white text-sm font-medium transition-colors border border-white/10"
+          >
+            <Globe className="w-4 h-4" />
+            {language.toUpperCase()}
+          </button>
+
           <Button className="rounded-full bg-primary hover:bg-primary/90 text-white font-medium px-6 py-2">
-            Hubungi Saya
+            {t.nav.cta}
             <MessageCircle className="ml-2 w-4 h-4" />
           </Button>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-white p-2"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X /> : <Menu />}
-        </button>
+        {/* Mobile Menu Toggle & Lang */}
+        <div className="flex items-center gap-3 md:hidden">
+          <button 
+            onClick={toggleLanguage}
+            className="flex items-center justify-center w-9 h-9 rounded-full bg-white/5 text-white text-xs font-bold border border-white/10"
+          >
+            {language.toUpperCase()}
+          </button>
+          
+          <button
+            className="text-white p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
@@ -111,7 +135,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-white/5 overflow-hidden"
+            className="md:hidden bg-black/60 backdrop-blur-2xl border-t border-white/10 shadow-2xl overflow-hidden"
           >
             <div className="flex flex-col p-4 gap-2">
               {navLinks.map((link) => {
@@ -130,7 +154,7 @@ export function Navbar() {
                 )
               })}
               <Button className="w-full mt-4 rounded-xl bg-primary hover:bg-primary/90 text-white font-medium py-3">
-                Hubungi Saya
+                {t.nav.cta}
                 <MessageCircle className="ml-2 w-4 h-4" />
               </Button>
             </div>
@@ -140,3 +164,4 @@ export function Navbar() {
     </motion.header>
   )
 }
+

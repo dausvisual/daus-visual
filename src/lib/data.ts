@@ -797,37 +797,49 @@ export const servicesData = [
   {
     id: 1,
     title: "Digital Invitations",
+    title_en: "Digital Invitations",
     description: "Layanan pembuatan undangan digital modern, interaktif, dan elegan untuk berbagai acara spesial Anda.",
+    description_en: "Modern, interactive, and elegant digital invitation creation services for your various special events.",
     icon: "MonitorSmartphone"
   },
   {
     id: 2,
     title: "Videografi",
+    title_en: "Videography",
     description: "Layanan pembuatan video untuk berbagai kebutuhan seperti wedding, event, company profile, dan promosi.",
+    description_en: "Video production services for various needs such as weddings, events, company profiles, and promotions.",
     icon: "Video"
   },
   {
     id: 3,
     title: "Fotografi",
+    title_en: "Photography",
     description: "Layanan fotografi profesional untuk mengabadikan momen terbaik Anda secara berkualitas dan berkesan.",
+    description_en: "Professional photography services to capture your best moments in high quality and memorable ways.",
     icon: "Camera"
   },
   {
     id: 4,
     title: "Drone Pilot",
+    title_en: "Drone Pilot",
     description: "Layanan pengambilan gambar udara menggunakan drone untuk hasil visual sinematik dan perspektif luas.",
+    description_en: "Aerial imaging services using drones for cinematic visual results and wide perspectives.",
     icon: "Plane"
   },
   {
     id: 5,
     title: "Desain Grafis",
+    title_en: "Graphic Design",
     description: "Layanan desain grafis untuk kebutuhan branding, media sosial, promosi, dan berbagai keperluan visual.",
+    description_en: "Graphic design services for branding, social media, promotions, and various visual needs.",
     icon: "PenTool"
   },
   {
     id: 6,
     title: "Professional Editing",
+    title_en: "Professional Editing",
     description: "Layanan editing video dan foto profesional untuk menghasilkan karya visual yang menarik, rapi, dan berkualitas.",
+    description_en: "Professional video and photo editing services to produce engaging, neat, and high-quality visual works.",
     icon: "Scissors"
   }
 ];
@@ -838,6 +850,7 @@ export const testimonialsData = [
     name: "INNA & FADEL",
     rating: 5,
     review: "Wahh puas banget sama hasilnya! Adminnya ramah, revisi cepat, dan harganya sangat terjangkau untuk kualitas sekelas ini.",
+    review_en: "Wow, very satisfied with the results! The admin is friendly, revisions are fast, and the price is very affordable for this level of quality.",
     image: "https://randomuser.me/api/portraits/men/32.jpg"
   },
   {
@@ -845,6 +858,7 @@ export const testimonialsData = [
     name: "SATRI & NURDIN",
     rating: 5,
     review: "Desain undangan digitalnya kekinian banget. Banyak tamu yang nanya bikin dimana karena saking bagusnya.",
+    review_en: "The digital invitation design is very modern. Many guests asked where we made it because it's so good.",
     image: "https://randomuser.me/api/portraits/women/44.jpg"
   },
   {
@@ -852,6 +866,7 @@ export const testimonialsData = [
     name: "MIFTA & KHAIDIR",
     rating: 5,
     review: "Sangat membantu karena fitur RSVP dan Google Maps-nya akurat. Tidak menyesal menggunakan jasa Daus Visual.",
+    review_en: "Very helpful because the RSVP and Google Maps features are accurate. No regrets using Daus Visual's services.",
     image: "https://randomuser.me/api/portraits/men/85.jpg"
   },
   {
@@ -859,6 +874,7 @@ export const testimonialsData = [
     name: "MILA & AIDIL",
     rating: 4,
     review: "Pengerjaannya on-time! Desain undangan digitalnya sangat elegan, dan musik latarnya pas banget dengan tema acara kami.",
+    review_en: "Done on-time! The digital invitation design is very elegant, and the background music fits perfectly with our event theme.",
     image: "https://randomuser.me/api/portraits/women/68.jpg"
   },
   {
@@ -866,6 +882,7 @@ export const testimonialsData = [
     name: "WIRNA & ERYADI",
     rating: 5,
     review: "Pelayanan sangat profesional. Fitur angpao digital sangat mempermudah tamu yang tidak bisa hadir.",
+    review_en: "Very professional service. The digital gift feature makes it very easy for guests who cannot attend.",
     image: "https://randomuser.me/api/portraits/men/22.jpg"
   },
   {
@@ -873,6 +890,7 @@ export const testimonialsData = [
     name: "SALSA & SYAHRIL",
     rating: 5,
     review: "Tim responsif banget pas minta revisi nama tamu. Terima kasih banyak atas bantuannya di hari sibuk kami.",
+    review_en: "The team was very responsive when requesting guest name revisions. Thank you so much for your help on our busy day.",
     image: "https://randomuser.me/api/portraits/women/12.jpg"
   },
   {
@@ -880,6 +898,7 @@ export const testimonialsData = [
     name: "RESKY & RIJAL",
     rating: 5,
     review: "Sangat puas dengan undangan digitalnya. Desainnya mewah, mudah diakses, dan fitur buku tamu digitalnya sangat informatif.",
+    review_en: "Very satisfied with the digital invitation. The design is luxurious, easy to access, and the digital guestbook feature is very informative.",
     image: "https://randomuser.me/api/portraits/men/63.jpg"
   },
   {
@@ -887,6 +906,7 @@ export const testimonialsData = [
     name: "HIKMAH & YUDHA",
     rating: 5,
     review: "Website loadingnya cepat, tidak lemot pas dibuka di HP lama sekalipun. Sangat direkomendasikan!",
+    review_en: "The website loading is fast, not slow even when opened on an old phone. Highly recommended!",
     image: "https://randomuser.me/api/portraits/women/89.jpg"
   }
 ];
@@ -895,42 +915,58 @@ export const faqData = [
   {
     id: 1,
     question: "Berapa lama proses pengerjaan undangan digital?",
-    answer: "Proses pengerjaan standar memakan waktu 2-3 hari kerja setelah data kami terima secara lengkap. Untuk layanan express (1x24 jam), silakan hubungi admin."
+    question_en: "How long does it take to process a digital invitation?",
+    answer: "Proses pengerjaan standar memakan waktu 2-3 hari kerja setelah data kami terima secara lengkap. Untuk layanan express (1x24 jam), silakan hubungi admin.",
+    answer_en: "The standard process takes 2-3 working days after we receive complete data. For express service (1x24 hours), please contact admin."
   },
   {
     id: 2,
     question: "Apakah bisa revisi jika ada kesalahan ketik?",
-    answer: "Tentu! Kami memberikan kuota revisi minor (seperti kesalahan ketik nama, tanggal, alamat) tanpa batas (unlimited) sampai undangan fix sebelum hari H."
+    question_en: "Can I revise if there's a typo?",
+    answer: "Tentu! Kami memberikan kuota revisi minor (seperti kesalahan ketik nama, tanggal, alamat) tanpa batas (unlimited) sampai undangan fix sebelum hari H.",
+    answer_en: "Of course! We provide unlimited minor revisions (such as typos for names, dates, addresses) until the invitation is fixed before D-day."
   },
   {
     id: 3,
     question: "Bagaimana cara mengirimkan foto dan video untuk undangan?",
-    answer: "Anda dapat mengunggah file foto dan video melalui Google Drive lalu membagikan link tersebut kepada kami, atau bisa juga melalui form pengisian data yang akan kami berikan."
+    question_en: "How to send photos and videos for the invitation?",
+    answer: "Anda dapat mengunggah file foto dan video melalui Google Drive lalu membagikan link tersebut kepada kami, atau bisa juga melalui form pengisian data yang akan kami berikan.",
+    answer_en: "You can upload photo and video files via Google Drive and share the link with us, or through the data collection form we provide."
   },
   {
     id: 4,
     question: "Apakah ada batas maksimal nama tamu yang bisa dibuatkan QR Code?",
-    answer: "Tidak ada batasan jumlah tamu untuk paket premium. Anda bisa meng-generate nama tamu sebanyak yang dibutuhkan."
+    question_en: "Is there a maximum limit for guest names that can have a QR Code?",
+    answer: "Tidak ada batasan jumlah tamu untuk paket premium. Anda bisa meng-generate nama tamu sebanyak yang dibutuhkan.",
+    answer_en: "There is no limit on the number of guests for premium packages. You can generate as many guest names as needed."
   },
   {
     id: 5,
     question: "Berapa lama masa aktif undangan digital ini?",
-    answer: "Undangan digital akan tetap aktif selama 1 bulan hingga 1 tahun setelah hari H, bergantung pada paket yang Anda pilih."
+    question_en: "How long is this digital invitation active?",
+    answer: "Undangan digital akan tetap aktif selama 1 bulan hingga 1 tahun setelah hari H, bergantung pada paket yang Anda pilih.",
+    answer_en: "The digital invitation will remain active for 1 month to 1 year after the event, depending on the package you choose."
   },
   {
     id: 6,
     question: "Apakah musik latar (backsound) bisa request?",
-    answer: "Bisa banget! Anda bisa mengirimkan link YouTube atau file MP3 lagu pilihan Anda, atau memilih dari daftar lagu yang kami rekomendasikan."
+    question_en: "Can I request the background music?",
+    answer: "Bisa banget! Anda bisa mengirimkan link YouTube atau file MP3 lagu pilihan Anda, atau memilih dari daftar lagu yang kami rekomendasikan.",
+    answer_en: "Absolutely! You can send a YouTube link or MP3 file of your chosen song, or select from our recommended song list."
   },
   {
     id: 7,
     question: "Apakah uang angpao digital langsung masuk ke rekening saya?",
-    answer: "Iya, tamu akan mentransfer langsung ke nomor rekening atau e-wallet (OVO, GoPay, DANA) yang Anda cantumkan di dalam undangan. Kami tidak memotong biaya apapun."
+    question_en: "Does the digital gift money go directly to my account?",
+    answer: "Iya, tamu akan mentransfer langsung ke nomor rekening atau e-wallet (OVO, GoPay, DANA) yang Anda cantumkan di dalam undangan. Kami tidak memotong biaya apapun.",
+    answer_en: "Yes, guests will transfer directly to the bank account or e-wallet (OVO, GoPay, DANA) you provide in the invitation. We do not deduct any fees."
   },
   {
     id: 8,
     question: "Apakah melayani jasa dokumentasi luar kota?",
-    answer: "Saat ini kami berbasis di Bulukumba, Sulawesi Selatan. Untuk layanan luar kota, akan dikenakan biaya transportasi dan akomodasi tambahan."
+    question_en: "Do you serve out-of-town documentation services?",
+    answer: "Saat ini kami berbasis di Bulukumba, Sulawesi Selatan. Untuk layanan luar kota, akan dikenakan biaya transportasi dan akomodasi tambahan.",
+    answer_en: "We are currently based in Bulukumba, South Sulawesi. For out-of-town services, additional transportation and accommodation fees will apply."
   }
 ];
 

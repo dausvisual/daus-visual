@@ -6,8 +6,10 @@ import useEmblaCarousel from "embla-carousel-react"
 import Autoplay from "embla-carousel-autoplay"
 import { Star, Quote, User } from "lucide-react"
 import { testimonialsData } from "@/lib/data"
+import { useLanguage } from "./LanguageContext"
 
 export function Testimonials() {
+  const { t, language } = useLanguage()
   const [emblaRef] = useEmblaCarousel(
     { loop: true, align: "start" },
     [Autoplay({ delay: 5000, stopOnInteraction: true })]
@@ -25,7 +27,7 @@ export function Testimonials() {
             viewport={{ once: true }}
             className="text-primary text-sm font-bold tracking-widest uppercase mb-4"
           >
-            TESTIMONIAL
+            {t.testimonials.badge}
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -34,7 +36,7 @@ export function Testimonials() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-5xl font-bold font-heading mb-4 text-white"
           >
-            Apa Kata <span className="text-primary">Mereka?</span>
+            {t.testimonials.title1} <span className="text-primary">{t.testimonials.titleHighlight}</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -43,7 +45,7 @@ export function Testimonials() {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground text-lg"
           >
-            Kepuasan klien adalah prioritas utama kami. Berikut adalah cerita bahagia mereka setelah bekerja sama dengan Daus Visual.
+            {t.testimonials.desc}
           </motion.p>
         </div>
 
@@ -70,12 +72,12 @@ export function Testimonials() {
                     </div>
                     <div>
                       <h4 className="font-bold text-white font-heading">{testimonial.name}</h4>
-                      <p className="text-xs text-muted-foreground">Client Invitation</p>
+                      <p className="text-xs text-muted-foreground">{t.testimonials.clientType}</p>
                     </div>
                   </div>
                   
-                  <p className="text-white/80 text-sm leading-relaxed mb-6 flex-grow italic">
-                    "{testimonial.review}"
+                  <p className="text-white/80 leading-relaxed italic mb-6">
+                    "{language === 'en' && testimonial.review_en ? testimonial.review_en : testimonial.review}"
                   </p>
                   
                   <div className="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">

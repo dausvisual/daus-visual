@@ -3,8 +3,11 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import { MapPin, Phone, Mail, MessageCircle } from "lucide-react"
+import { useLanguage } from "./LanguageContext"
 
 export function Contact() {
+  const { t } = useLanguage()
+
   return (
     <section id="contact" className="py-24 bg-[#111111] relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -18,16 +21,16 @@ export function Contact() {
             className="text-center"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-6">
-              Hubungi Kami
+              {t.contact.badge}
             </div>
 
             <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 text-white">
-              Mari Berkolaborasi <br />
-              <span className="text-primary">Bersama Kami</span>
+              {t.contact.title1} <br />
+              <span className="text-primary">{t.contact.titleHighlight}</span>
             </h2>
 
             <p className="text-muted-foreground text-lg mb-12 max-w-2xl mx-auto">
-              Punya pertanyaan atau ingin mendiskusikan proyek Anda? Jangan ragu untuk menghubungi kami. Tim Daus Visual siap melayani Anda dengan sepenuh hati.
+              {t.contact.desc}
             </p>
 
             <div className="grid grid-cols-3 gap-2 md:gap-6 mb-12">
@@ -36,8 +39,8 @@ export function Contact() {
                   <MapPin className="w-4 h-4 md:w-6 md:h-6" />
                 </div>
                 <div className="flex flex-col flex-grow justify-start">
-                  <h4 className="text-white font-bold text-[10px] md:text-base mb-1 md:mb-2 leading-tight">Alamat</h4>
-                  <p className="text-muted-foreground text-[8px] md:text-sm leading-tight">Bulukumba, Sulsel</p>
+                  <h4 className="text-white font-bold text-[10px] md:text-base mb-1 md:mb-2 leading-tight">{t.contact.addressTitle}</h4>
+                  <p className="text-muted-foreground text-[8px] md:text-sm leading-tight">{t.contact.addressDesc}</p>
                 </div>
               </div>
               
@@ -46,7 +49,7 @@ export function Contact() {
                   <Phone className="w-4 h-4 md:w-6 md:h-6" />
                 </div>
                 <div className="flex flex-col flex-grow justify-start">
-                  <h4 className="text-white font-bold text-[10px] md:text-base mb-1 md:mb-2 leading-tight">Telepon/WA</h4>
+                  <h4 className="text-white font-bold text-[10px] md:text-base mb-1 md:mb-2 leading-tight">{t.contact.phoneTitle}</h4>
                   <p className="text-muted-foreground text-[8px] md:text-sm leading-tight break-words">+6285341866227</p>
                 </div>
               </div>
@@ -56,7 +59,7 @@ export function Contact() {
                   <Mail className="w-4 h-4 md:w-6 md:h-6" />
                 </div>
                 <div className="flex flex-col flex-grow justify-start">
-                  <h4 className="text-white font-bold text-[10px] md:text-base mb-1 md:mb-2 leading-tight">Email</h4>
+                  <h4 className="text-white font-bold text-[10px] md:text-base mb-1 md:mb-2 leading-tight">{t.contact.emailTitle}</h4>
                   <p className="text-muted-foreground text-[8px] md:text-sm leading-tight break-all">dausvisual<br className="md:hidden"/>@gmail.com</p>
                 </div>
               </div>

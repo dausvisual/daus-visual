@@ -4,6 +4,7 @@ import * as React from "react"
 import { motion } from "framer-motion"
 import { ArrowRight, MonitorSmartphone, Video, Camera, Plane, PenTool, Scissors } from "lucide-react"
 import { servicesData } from "@/lib/data"
+import { useLanguage } from "./LanguageContext"
 
 const iconMap: Record<string, React.ElementType> = {
   MonitorSmartphone,
@@ -15,6 +16,8 @@ const iconMap: Record<string, React.ElementType> = {
 }
 
 export function Services() {
+  const { t, language } = useLanguage()
+
   return (
     <section id="services" className="py-24 bg-[#090909] relative overflow-hidden">
       {/* Background Decor */}
@@ -29,16 +32,16 @@ export function Services() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4"
           >
-            Layanan Kami
+            {t.services.badge}
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold font-heading mb-4"
+            className="text-3xl md:text-5xl font-bold font-heading mb-4"
           >
-            Provide <span className="text-primary">Services</span>
+            {t.services.title1} <span className="text-primary">{t.services.titleHighlight}</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -47,7 +50,7 @@ export function Services() {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground text-lg max-w-2xl mx-auto"
           >
-            Berbagai layanan kreatif yang siap membantu mewujudkan ide menjadi karya visual terbaik dengan sentuhan profesional.
+            {t.services.desc}
           </motion.p>
         </div>
 
@@ -71,14 +74,14 @@ export function Services() {
                     <Icon className="w-5 h-5 md:w-8 md:h-8" />
                   </div>
                   
-                  <h3 className="text-[10px] md:text-xl font-bold font-heading leading-tight">{service.title}</h3>
+                  <h3 className="text-[10px] md:text-xl font-bold font-heading leading-tight">{language === "id" ? service.title : service.title_en || service.title}</h3>
                   <p className="text-[8px] md:text-sm text-muted-foreground flex-grow leading-tight">
-                    {service.description}
+                    {language === "id" ? service.description : service.description_en || service.description}
                   </p>
                   
                   <button className="mt-1 md:mt-4 inline-flex items-center text-[8px] md:text-sm font-medium text-primary hover:text-white transition-colors group/btn">
-                    <span className="hidden md:inline">Pelajari Lebih Lanjut</span>
-                    <span className="md:hidden">Detail</span>
+                    <span className="hidden md:inline">{language === "id" ? "Pelajari Lebih Lanjut" : "Learn More"}</span>
+                    <span className="md:hidden">{language === "id" ? "Detail" : "Details"}</span>
                     <ArrowRight className="ml-1 md:ml-2 w-2 h-2 md:w-4 md:h-4 group-hover/btn:translate-x-1 transition-transform" />
                   </button>
                 </div>

@@ -4,6 +4,7 @@ import * as React from "react"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import { CheckCircle2 } from "lucide-react"
+import { useLanguage } from "./LanguageContext"
 
 function Counter({ from, to, duration = 2, suffix = "" }: { from: number, to: number, duration?: number, suffix?: string }) {
   const [count, setCount] = React.useState(from)
@@ -29,6 +30,8 @@ function Counter({ from, to, duration = 2, suffix = "" }: { from: number, to: nu
 }
 
 export function About() {
+  const { t, language } = useLanguage()
+
   return (
     <section id="about" className="py-24 bg-background relative z-10">
       <div className="container mx-auto px-4 md:px-6">
@@ -53,8 +56,8 @@ export function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
               
               <div className="absolute bottom-8 left-8 right-8 bg-black/50 backdrop-blur-md border border-white/10 p-6 rounded-2xl">
-                <h3 className="text-xl font-bold font-heading text-white mb-2">Our Vision</h3>
-                <p className="text-white/80 text-sm">Menjadi pionir inovasi visual dan digital invitation di Indonesia yang menginspirasi banyak orang.</p>
+                <h3 className="text-xl font-bold font-heading text-white mb-2">{t.about.visionTitle}</h3>
+                <p className="text-white/80 text-sm">{t.about.visionDesc}</p>
               </div>
             </div>
             
@@ -71,23 +74,19 @@ export function About() {
             transition={{ duration: 0.6 }}
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-6">
-              Tentang Kami
+              {t.about.badge}
             </div>
             
             <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6">
-              Mewujudkan Momen Anda dalam <span className="text-primary">Karya Digital</span>
+              {t.about.title1} <span className="text-primary">{t.about.titleHighlight}</span>
             </h2>
             
             <p className="text-muted-foreground text-lg mb-8">
-              Daus Visual Creative Industry berdedikasi untuk menciptakan desain dan dokumentasi visual kelas premium. Kami memadukan seni dan teknologi untuk menghasilkan undangan digital dan mahakarya visual yang elegan.
+              {t.about.desc1}
             </p>
 
             <div className="space-y-4 mb-10">
-              {[
-                "Desain eksklusif dan custom sesuai keinginan Anda.",
-                "Tim profesional dengan pengalaman lebih dari 5 tahun.",
-                "Pelayanan cepat, responsif, dan mengutamakan kualitas."
-              ].map((text, i) => (
+              {t.about.features.map((text, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />
                   <span className="text-muted-foreground">{text}</span>
@@ -101,19 +100,19 @@ export function About() {
                 <div className="text-4xl font-bold text-white font-heading mb-2">
                   <Counter from={0} to={100} suffix="+" />
                 </div>
-                <div className="text-sm text-muted-foreground">Projects</div>
+                <div className="text-sm text-muted-foreground">{language === "id" ? "Proyek" : "Projects"}</div>
               </div>
               <div className="text-center md:text-left">
                 <div className="text-4xl font-bold text-white font-heading mb-2">
                   <Counter from={0} to={50} suffix="+" />
                 </div>
-                <div className="text-sm text-muted-foreground">Happy Clients</div>
+                <div className="text-sm text-muted-foreground">{language === "id" ? "Klien Puas" : "Happy Clients"}</div>
               </div>
               <div className="text-center md:text-left">
                 <div className="text-4xl font-bold text-white font-heading mb-2">
-                  <Counter from={0} to={5} suffix="+" />
+                  <Counter from={0} to={5} suffix={language === "id" ? " Thn+" : " Yrs+"} />
                 </div>
-                <div className="text-sm text-muted-foreground">Years Exp</div>
+                <div className="text-sm text-muted-foreground">{language === "id" ? "Pengalaman" : "Experience"}</div>
               </div>
             </div>
           </motion.div>

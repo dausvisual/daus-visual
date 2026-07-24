@@ -4,9 +4,11 @@ import * as React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { MessageCircle } from "lucide-react"
+import { useLanguage } from "./LanguageContext"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
+  const { t } = useLanguage()
 
   return (
     <footer className="bg-background border-t border-white/10 pt-16 pb-8 relative overflow-hidden">
@@ -19,11 +21,11 @@ export function Footer() {
         <div className="bg-[#0f0f0f] rounded-3xl p-8 md:p-12 mb-20 border border-white/5 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-2">
-              Siap Membuat Undangan <br className="hidden md:block" />
-              Digital Impian Anda?
+              {t.footer.ctaTitle1} <br className="hidden md:block" />
+              {t.footer.ctaTitle2}
             </h2>
             <p className="text-muted-foreground">
-              Konsultasikan kebutuhan Anda sekarang juga.
+              {t.footer.ctaDesc}
             </p>
           </div>
           <a 
@@ -32,7 +34,7 @@ export function Footer() {
             rel="noreferrer"
             className="shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-white rounded-full font-bold transition-all duration-300 shadow-[0_0_20px_rgba(229,16,16,0.4)]"
           >
-            Hubungi Kami di WhatsApp
+            {t.footer.ctaBtn}
             <MessageCircle className="w-5 h-5 ml-1" />
           </a>
         </div>
@@ -44,7 +46,7 @@ export function Footer() {
               <Image src="/image/logo.png" alt="Daus Visual" width={180} height={64} className="h-14 md:h-16 w-auto mx-auto md:mx-0" style={{ width: 'auto', height: 'auto' }} />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              Solusi kreatif untuk kebutuhan visual Anda. Kami hadir untuk memberikan hasil terbaik dengan sentuhan elegan dan profesional.
+              {t.footer.desc}
             </p>
             <div className="flex items-center justify-center md:justify-start gap-4">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-primary hover:text-white transition-colors">
@@ -64,7 +66,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs text-muted-foreground">
-          <p>&copy; {currentYear} Daus Visual Creative Industry. All rights reserved.</p>
+          <p>&copy; {currentYear} Daus Visual. {t.footer.copyright}</p>
           <div className="flex gap-4">
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
